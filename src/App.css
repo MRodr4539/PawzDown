@@ -64,6 +64,7 @@
     display: flex;
     justify-content: space-between;
     background: rgb(215, 227, 255);
+    opacity: 0.5;
     color: white;
     text-shadow: 2px 2px 4px #000000;
     padding: 0 25px;
@@ -74,8 +75,7 @@
   
   }
 .pets-icon{
-  font-size:60px;
-  color:white;
+  color:rgb(107, 107, 107);
   text-shadow:2px 2px 4px #000000;
 }
 
@@ -90,8 +90,17 @@
   .flexbox-nav ul li {
     display: inline;
     padding: 0px 30px 0;
+    
   }
+.flexbox-nav ul li:hover{
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  zoom: 1;
+}
 .navigation-right{
   display: flex;
   
 }
+
+
+/***ABOVE THE FOLD***/

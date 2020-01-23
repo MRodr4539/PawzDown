@@ -6,9 +6,9 @@ import PetsIcon from '@material-ui/icons/Pets';
 import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Link } from 'react-router-dom'
-// import './Navigation.css'
-// import { fas fa-paw } from '@fortawesome/free-solid-svg-icons';
 import '../App.css'
+
+
 
 const Navigation = () => {
 
@@ -20,7 +20,12 @@ const Navigation = () => {
               <nav class='flexbox-nav'>
                 <div className='logo-left'>
                 <i class="fas fa-paw"></i>
-                  <h1><PetsIcon fontSize='large' className='pets-icon'/> Pawz Down</h1>
+                  <h1>
+                    <PetsIcon 
+                    fontSize='large' 
+                    className='pets-icon'/> 
+                      Pawz Down
+                  </h1>
                 </div>
                 <div className='nav-right'>
                   <ul>
@@ -31,6 +36,9 @@ const Navigation = () => {
                   </ul>
                 </div>
               </nav>
+              <div className='above-fold'> 
+
+              </div>
           </div>
 
             {/* <BottomNavigation>
