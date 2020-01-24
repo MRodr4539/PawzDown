@@ -1,10 +1,11 @@
 import React from "react"
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PetsIcon from '@material-ui/icons/Pets';
-import SearchIcon from '@material-ui/icons/Search';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom'
 import '../App.css'
 
@@ -16,42 +17,20 @@ const Navigation = () => {
     return(
       
         <div>
-          <div className='nav-contianer'>
-              <nav class='flexbox-nav'>
-                <div className='logo-left'>
-                <i class="fas fa-paw"></i>
-                  <h1>
-                    <PetsIcon 
-                    fontSize='large' 
-                    className='pets-icon'/> 
-                      Pawz Down
-                  </h1>
-                </div>
-                <div className='nav-right'>
-                  <ul>
-                    <li>Reviews</li>
-                    <li>Contact Us</li> 
-                  {/* Skip to part of the page */}
-                    <li>Add new Place</li>
-                  </ul>
-                </div>
-              </nav>
-              <div className='above-fold'> 
-
-              </div>
-          </div>
-
-            {/* <BottomNavigation>
-                <BottomNavigationAction
-                  label="My Account" icon={<AccountCircleIcon fontSize='large'/>} />
-                  
-                <BottomNavigationAction 
-                  label="Visited" icon={<PetsIcon fontSize='large'/>} />
-                <BottomNavigationAction 
-                  label="Search" icon={<SearchIcon fontSize='large' />} />
-                <BottomNavigationAction 
-                  label="Logout" icon={<ExitToAppIcon fontSize='large' />} />
-            </BottomNavigation> */}
+          <AppBar position='static' className='nav-contianer'>
+              <Toolbar class='flexbox-nav'>
+                <IconButton edge='start'color="inherit" aria-label="menu">
+                  <MenuIcon/>
+                </IconButton>
+                <h1>
+                <PetsIcon fontSize='large'/>
+                  Pawz Down
+                </h1>
+                <Button color='inherit'>About Us</Button>
+                <Button color='inherit'>Add Location</Button>
+                <Button color='inherit'> Us!</Button>
+              </Toolbar>
+          </AppBar>
         </div>
     )
 }
