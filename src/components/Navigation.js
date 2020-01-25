@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Component} from "react"
 import PetsIcon from '@material-ui/icons/Pets';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,9 +11,22 @@ import '../App.css'
 
 
 
-const Navigation = () => {
+class Navigation extends Component {
+    constructor(props){
+      super(props);
+      this.main = React.createRef();
+    }
 
-
+    handleScroll = e => {
+      e.preventDefault();
+      const main = this.main.current;
+      window.scrollTo({
+        top: main.offsetTop,
+        left: 0,
+        behavior: 'instant'
+      });
+    }
+    render(){
     return(
       
         <div>
@@ -24,15 +37,38 @@ const Navigation = () => {
                 </IconButton>
                 <h1>
                 <PetsIcon fontSize='large'/>
-                  Pawz Down
+                  <Link 
+                    style={{paddingLeft: 13, textDecoration: 'none', color:'white'}} 
+                    to="/">
+                      PawzDown
+                  </Link>
                 </h1>
-                <Button color='inherit'>About Us</Button>
-                <Button color='inherit'>Add Location</Button>
-                <Button color='inherit'> Us!</Button>
+                <Button color='inherit'>
+                <Link 
+                    style={{paddingLeft: 13, textDecoration: 'none', color:'white'}} 
+                    to="/AboutUs">
+                      About Us
+                  </Link>
+                </Button>
+                <Button color='inherit'>
+                  <Link 
+                    style={{paddingLeft: 13, textDecoration: 'none', color:'white'}} 
+                    to="/LocationList">
+                      Approved Locations
+                  </Link>
+                </Button>
+                <Button color='inherit'>
+                  <Link 
+                    style={{paddingLeft: 13, textDecoration: 'none', color:'white'}} 
+                    to="/AddPost">
+                      Add Location
+                  </Link>
+                </Button>
               </Toolbar>
           </AppBar>
         </div>
     )
+}
 }
 
 export default Navigation;
