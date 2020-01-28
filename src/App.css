@@ -77,12 +77,25 @@
 
 
 /***SEARCH HOME***/
+.main-home-container{
+margin:10px;
+}
 .img{
   border: 5px solid rgb(255, 253, 253);
-  padding: 5px 5px 5px 5px;
+  /* padding: 5px 5px 5px 5px; */
   max-width: 100%;
 }
-
+.cards{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.place-card{
+  width: 250px; 
+}
+.park-card-image{
+  height: 200px;
+}
 /* .main-container{
 
 }
@@ -105,4 +118,13 @@
   align-content: center;
   justify-content: center;
   font-family: 'Bowlby One SC', cursive;
+}
+
+
+
+
+/***** FOOTER ****/
+.footer{
+  height: 150px;
+  background-color:rgb(215, 227, 255);
 }

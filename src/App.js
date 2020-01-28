@@ -10,7 +10,7 @@ import SearchHome from './components/SearchHome'
 import AddReview from './components/AddPost'
 // import CreateAcct from './components/CreateAcct';
 import LoginPage from './Later Dev/LoginPage';
-
+import Footer from './components/Footer'
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           <BrowserRouter>
             <Navigation/>
             <Router/>
+            <Footer/>
           </BrowserRouter>
         
     </div>
