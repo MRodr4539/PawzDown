@@ -17,6 +17,7 @@ import ParkPup from '../images/ParkPup.png'
 import RestaurantPup from '../images/RestaurantPup.png'
 import barPup from '../images/barPup.png'
 import hangingPup from '../images/hangingPup.png'
+import chillPup from '../images/chillPup.png'
 
 const SearchHome = () => {
 
@@ -31,11 +32,11 @@ const SearchHome = () => {
                 <h1>Well, we want to know too!</h1>
             </div>
             
-            <Link 
+            
+              <div className='cards'>
+              <Link 
                style={{paddingTop: 13, textDecoration: 'none', color:'grey'}}
                to="/AddPost">
-              
-              <div className='cards'>
             <Card className='place-card'>
                 <CardActionArea >
                     <img
@@ -51,11 +52,15 @@ const SearchHome = () => {
                      </CardContent>   
                 </CardActionArea>
             </Card>
+            </Link>
+            <Link 
+               style={{paddingTop: 13, textDecoration: 'none', color:'grey'}}
+               to="/AddPost">
             <Card className='place-card'>
                 <CardActionArea >
                     <img
-                        className='park-card-image'
-                        src={barPup}></img>
+                        className='park-card-image rest'
+                        src={chillPup}></img>
                      <CardContent>
                         <h3>
                             Know a great Restaurant?
@@ -66,6 +71,10 @@ const SearchHome = () => {
                      </CardContent>   
                 </CardActionArea>
             </Card>
+            </Link>
+            <Link 
+               style={{paddingTop: 13, textDecoration: 'none', color:'grey'}}
+               to="/AddPost">
             <Card className='place-card'>
                 <CardActionArea >
                     <img
@@ -81,8 +90,9 @@ const SearchHome = () => {
                      </CardContent>   
                 </CardActionArea>
             </Card>
-            </div>
             </Link>
+            </div>
+            
             
             <h3>Have you visited a pup friendly place?</h3>
                 <p>Park, Resturant, Bar, </p>

@@ -1,4 +1,6 @@
 import React from 'react'
+import boredPup from '../images/boredPup.png'
+
 
 const AboutUs = () => {
     return(
