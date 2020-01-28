@@ -12,29 +12,113 @@ import '../App.css'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {purple, teal, green, blue, orange} from '@material-ui/core/colors';
 
-//custom themeing
-const theme = createMuiTheme({
-  palette: {
-    primary: teal,
-    secondary: green,
-  },
-  typography:{
-      fontFamily:[
-          '"Segoe UI"',
-      ]
-  }
-});
 
-class AddReview extends Component {
-    state ={
-        username:'auto fill-username',
-        comments: ''
+const locationTypes = [
+    {
+      value: 'Park',
+      label: '',
+    },
+    {
+      value: 'Restruant',
+      label: '',
+    },
+    {
+      value: 'Bar',
+      label: '',
+    },
+    {
+      value: 'Water front',
+      label: '',
+    },
+    {
+        value: 'Store',
+        label: '',
+    },
+    {
+        value: 'Other',
+        label: '',
+    },
+    //make input for other
+  ];
+
+
+
+
+class AddPost extends Component {
+   constructor(props){
+       super(props);
+       this.state = {value: ''};
+
+       this.handleChange = this.handleChange.bind(this);
+       this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    handleChange(event){
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event){
+        alert('Post was submitted' + this.state.value)
+        event.preventDefault();
+    }
+
+
  render(){
 
     return(
-        <div className='background'>
-        <ThemeProvider theme= {theme}>
+        <div className='about-container'>
+        <form onSubmit={this.handleSubmit}>
+            <label>
+                Name:
+                <input 
+                 type='text' 
+                 value={this.state.value} 
+                 onChange={this.handleChange}
+                 />
+            </label>
+            <br></br>
+            <label>
+                Address:
+                <input 
+                 type='text' 
+                 value={this.state.value} 
+                 onChange={this.handleChange}
+                 />
+            </label>
+            <br></br>
+            <label>
+                Type of Location:
+                <select 
+                 value={this.state.value}
+                 onChange={this.handleChange}>
+                     <option value='Park'>Park</option>
+                     <option value='Restruant'>Restruant</option>
+                     <option value='Bar'>Bar</option>
+                     <option value='Other'>Other</option>
+                 </select>
+            </label>
+            <br></br>
+            <label>
+                Anything else we should know before we go?
+                <textarea 
+                 rows='6' 
+                 cols='40' 
+                 type='text' 
+                 value={this.state.value} 
+                 onChange={this.handleChange}
+                 ></textarea>
+            </label>
+           
+            <Button value='Submit'>Submit Location</Button>
+        </form>
+        </div>
+    )
+}
+}
+
+export default AddPost;
+
+{/* <ThemeProvider theme= {theme}>
             <ThemeProvider
                 theme={theme =>
                 createMuiTheme({
@@ -78,10 +162,4 @@ class AddReview extends Component {
             </CardContent>
         </Card>
             </ThemeProvider>
-        </ThemeProvider>
-        </div>
-    )
-}
-}
-
-export default AddReview;
+        </ThemeProvider> */}

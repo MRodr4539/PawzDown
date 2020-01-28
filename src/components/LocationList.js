@@ -2,7 +2,9 @@ import React from 'react'
 
 const  LocationList = () => {
     return(
-        <div>Location List</div>
+        <div>Location List
+            Make table***
+        </div>
     )
 }
 
