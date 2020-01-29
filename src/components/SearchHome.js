@@ -1,9 +1,4 @@
 import React from "react"
-import PetsIcon from '@material-ui/icons/Pets';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -47,7 +42,7 @@ const SearchHome = () => {
                             Know a great Park?
                         </h3>
                         <h4>
-                            Tell us about it!
+                            Tell us!
                         </h4>
                      </CardContent>   
                 </CardActionArea>
@@ -66,7 +61,7 @@ const SearchHome = () => {
                             Know a great Restaurant?
                         </h3>
                         <h4>
-                            Tell us about it!
+                            Tell us!
                         </h4>
                      </CardContent>   
                 </CardActionArea>
@@ -85,7 +80,7 @@ const SearchHome = () => {
                             Or a place our pups can just hang around?
                         </h3>
                         <h4>
-                            Tell us about it!
+                            Tell us!
                         </h4>
                      </CardContent>   
                 </CardActionArea>
@@ -95,7 +90,7 @@ const SearchHome = () => {
             
             
             <h3>Have you visited a pup friendly place?</h3>
-                <p>Park, Resturant, Bar, </p>
+                
         </div>
     )
 }

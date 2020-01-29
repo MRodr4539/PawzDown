@@ -9,7 +9,7 @@ class Connection {
         host: '35.239.28.218',
         user: 'root',
         password: 'Franklin22@',
-        database: 'admin',
+        database: 'pawzdown',
         debug: false
       })
 
