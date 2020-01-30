@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet');
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap');
 
 .App {
   text-align: center;
@@ -97,7 +99,7 @@ margin:10px;
   height: 200px;
 }
 .rest{
-  
+
 }
 /* .main-container{
 
@@ -120,9 +122,18 @@ margin:10px;
   display: flex;
   align-content: center;
   justify-content: center;
-  font-family: 'Bowlby One SC', cursive;
+  
+}
+.radio-buttons{
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
 }
 
+/*not working over material ui
+.submit-location{
+  background: blue;
+}
 
 
 

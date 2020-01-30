@@ -6,58 +6,41 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { TextField } from "@material-ui/core";
 import { positions } from '@material-ui/system';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 import '../App.css'
-
-//custom theme
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import {purple, teal, green, blue, orange} from '@material-ui/core/colors';
-
-
-const locationTypes = [
-    {
-      value: 'Park',
-      label: '',
-    },
-    {
-      value: 'Restruant',
-      label: '',
-    },
-    {
-      value: 'Bar',
-      label: '',
-    },
-    {
-      value: 'Water front',
-      label: '',
-    },
-    {
-        value: 'Store',
-        label: '',
-    },
-    {
-        value: 'Other',
-        label: '',
-    },
-    //make input for other
-  ];
 
 
 
 
 class AddPost extends Component {
-   constructor(props){
-       super(props);
-       this.state = {value: ''};
+    state = {
+        id: '',
+        name: '',
+        address: '',
 
-       this.handleChange = this.handleChange.bind(this);
-       this.handleSubmit = this.handleSubmit.bind(this);
     }
+//    constructor(props){
+//        super(props);
+//        this.state = {value: ''};
 
-    handleChange(event){
+//        this.handleChange = this.handleChange.bind(this);
+//        this.handleSubmit = this.handleSubmit.bind(this);
+    // }
+
+    handleChange = (event) =>{
         this.setState({value: event.target.value});
     }
 
-    handleSubmit(event){
+    // radioHandleChange = event =>{
+    //     setValue(event.target.value)
+    // }
+
+    handleSubmit = (event) =>{
         alert('Post was submitted' + this.state.value)
         event.preventDefault();
     }
@@ -68,26 +51,37 @@ class AddPost extends Component {
     return(
         <div className='about-container'>
         <form onSubmit={this.handleSubmit}>
-            <label>
-                Name:
-                <input 
-                 type='text' 
-                 value={this.state.value} 
-                 onChange={this.handleChange}
-                 />
-            </label>
+           <br></br>
+           <br></br>
+          <TextField
+            id='name'
+            placeholder='Your Name'
+            value = {this.state.name}
+            onChange = {this.textChangeHandler}
+            required 
+           />
+           <br></br>
+           <br></br>
+           <TextField
+            id='address'
+            placeholder='Address'
+            value = {this.state.address}
+            onChange = {this.textChangeHandler}
+            required 
+           />
+            <br></br>
+            <br></br>
+           <TextField
+            id='name'
+            placeholder='Name of Location'
+            value = {this.state.name}
+            onChange = {this.textChangeHandler}
+            required 
+           />
+            <br></br>
             <br></br>
             <label>
-                Address:
-                <input 
-                 type='text' 
-                 value={this.state.value} 
-                 onChange={this.handleChange}
-                 />
-            </label>
-            <br></br>
-            <label>
-                Type of Location:
+                Type of Location
                 <select 
                  value={this.state.value}
                  onChange={this.handleChange}>
@@ -98,23 +92,63 @@ class AddPost extends Component {
                  </select>
             </label>
             <br></br>
+            <br></br>
+            <br></br>
+            <div className='radio-buttons'>
+            <FormControl component="fieldset" >
+                <FormLabel component="legend">Leash?</FormLabel>
+                <RadioGroup aria-label="leash" >
+                    <FormControlLabel value="On" control={<Radio />} label="On" />
+                    <FormControlLabel value="Off" control={<Radio />} label="Off" />
+                    <FormControlLabel value="Either" control={<Radio />} label="Either" />
+                </RadioGroup>
+            </FormControl>
+            <br></br>
+            <FormControl component="fieldset" >
+                <FormLabel component="legend">Bag Station?</FormLabel>
+                <RadioGroup aria-label="leash" >
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes, they have it covered" />
+                    <FormControlLabel value="no" control={<Radio />} label="No, bring your own" />
+                </RadioGroup>
+            </FormControl>
+            <br></br>
+            <FormControl component="fieldset" >
+                <FormLabel component="legend">Location is:</FormLabel>
+                <RadioGroup aria-label="leash" >
+                    <FormControlLabel value="enclosed" control={<Radio />} label="Enclosed" />
+                    <FormControlLabel value="open" control={<Radio />} label="Open" />
+                    <FormControlLabel value="little bit of both" control={<Radio />} label="Little bit of both" />
+                </RadioGroup>
+            </FormControl>
+            </div>
+            <br></br>
+            <div>Anything else we should know before we go?</div>
+            <br></br>
+           
             <label>
-                Anything else we should know before we go?
-                <textarea 
-                 rows='6' 
-                 cols='40' 
+                <TextField 
+                 id="standard-multiline-static"
+                 label="Ex: There is water at this location. Bring towels for your pup!"
+                 multiline
+                 rows="4" 
                  type='text' 
                  value={this.state.value} 
                  onChange={this.handleChange}
-                 ></textarea>
+                 ></TextField>
             </label>
-           
-            <Button value='Submit'>Submit Location</Button>
+           <br></br>
+           <br></br>
+            <Button value='Submit' className='submit-location'>Submit Location</Button>
+            <br></br>
+           <br></br>
         </form>
+        
         </div>
     )
 }
 }
+
+
 
 export default AddPost;
 
