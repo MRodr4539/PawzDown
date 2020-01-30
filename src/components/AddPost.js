@@ -13,6 +13,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import '../App.css'
+import RatingTool from './RatingTool'
 
 
 
@@ -20,8 +21,10 @@ import '../App.css'
 class AddPost extends Component {
     state = {
         id: '',
-        name: '',
+        yourName: '',
         address: '',
+        locationName: '',
+        comments: '',
 
     }
 //    constructor(props){
@@ -50,13 +53,13 @@ class AddPost extends Component {
 
     return(
         <div className='about-container'>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} method='post'>
            <br></br>
            <br></br>
           <TextField
             id='name'
             placeholder='Your Name'
-            value = {this.state.name}
+            value = {this.state.yourName}
             onChange = {this.textChangeHandler}
             required 
            />
@@ -74,7 +77,7 @@ class AddPost extends Component {
            <TextField
             id='name'
             placeholder='Name of Location'
-            value = {this.state.name}
+            value = {this.state.locationName}
             onChange = {this.textChangeHandler}
             required 
            />
@@ -122,13 +125,14 @@ class AddPost extends Component {
             </FormControl>
             </div>
             <br></br>
+            {/* <RatingTool/> */}
             <div>Anything else we should know before we go?</div>
             <br></br>
            
             <label>
                 <TextField 
                  id="standard-multiline-static"
-                 label="Ex: There is water at this location. Bring towels for your pup!"
+                 placeholder="Ex: There is water at this location. Bring towels for your pup!"
                  multiline
                  rows="4" 
                  type='text' 
