@@ -52,7 +52,7 @@ class AddPost extends Component {
  render(){
 
     return(
-        <div className='about-container'>
+        <div className='add-container'>
         <form onSubmit={this.handleSubmit} method='post'>
            <br></br>
            <br></br>
@@ -104,6 +104,14 @@ class AddPost extends Component {
                     <FormControlLabel value="On" control={<Radio />} label="On" />
                     <FormControlLabel value="Off" control={<Radio />} label="Off" />
                     <FormControlLabel value="Either" control={<Radio />} label="Either" />
+                </RadioGroup>
+            </FormControl>
+            <br></br>
+            <FormControl component="fieldset" >
+                <FormLabel component="legend">Water?</FormLabel>
+                <RadioGroup aria-label="leash" >
+                    <FormControlLabel value="Fountain Available" control={<Radio />} label="Fountain Available" />
+                    <FormControlLabel value="Bring your own" control={<Radio />} label="Bring your own" />
                 </RadioGroup>
             </FormControl>
             <br></br>

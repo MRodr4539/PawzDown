@@ -93,7 +93,7 @@ function Navigation() {
                 </Drawer>
 
 
-                <h1>
+                <h1 className='logo'>
                 <PetsIcon className='pet-menu-icon' fontSize='large'/>
                   <Link 
                     style={{paddingLeft: 13, paddingTop: 13, textDecoration: 'none', color:'white'}} 

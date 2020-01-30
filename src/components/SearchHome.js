@@ -88,9 +88,10 @@ const SearchHome = () => {
             </Link>
             </div>
             
-            
-            <h3>Have you visited a pup friendly place?</h3>
-                
+            <br></br>
+            <h3>We look forward to visiting your favorite spot!</h3>
+              <br></br>  
+              <br></br>
         </div>
     )
 }
