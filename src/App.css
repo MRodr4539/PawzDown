@@ -124,19 +124,6 @@ margin:10px;
  height: 100%;
 }
 
-/* .main-container{
-
-}
-.image-container{
-
-}
-.blurb{
-
-}
-.Add-here{
-
-} */
-
 
 
 /***AddPost***/
@@ -164,8 +151,19 @@ margin:10px;
   display: flex;
   align-content: center;
   justify-content: center;
+  flex-direction: column;
+  display: inline-block;
   color: rgb(83, 83, 83);
 }
+/* .about-paragraph-two{
+  width: 250px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  display: inline-block;
+  color: rgb(83, 83, 83);
+} */
 
 
 

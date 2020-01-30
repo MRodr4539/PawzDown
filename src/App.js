@@ -11,13 +11,14 @@ import AddReview from './components/AddPost'
 // import CreateAcct from './components/CreateAcct';
 import LoginPage from './Later Dev/LoginPage';
 import Footer from './components/Footer'
-
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <div className="App">
          
           <BrowserRouter>
+            <ScrollToTop/>
             <Navigation/>
             <Router/>
             <Footer/>
