@@ -1,9 +1,15 @@
+const mysql = require('mysql')
+const pool = require('../SQL/connection')
+const { handleSQLError } = require('../SQL/error')
+ 
+
+const getAllUsers = (req, res) =>{
  // SELECT ALL USERS
  pool.query("SELECT * FROM locationList", (err, rows) => {
     if (err) return handleSQLError(res, err)
     return res.json(rows);
   })
-
+}
 
 const getUserById = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
@@ -28,20 +34,8 @@ const createUser = (req, res) => {
 
 
 
-// const deleteUserByFirstName = (req, res) => {
-//   let sql = `DELETE FROM ?? WHERE ?? = '${req.params.first_name}'`
-//   // WHAT GOES IN THE BRACKETS
-//   sql = mysql.format(sql, ['users', 'first_name'])
-//   pool.query(sql, (err, results) => {
-//     if (err) return handleSQLError(res, err)
-//     return res.json({ message: `Deleted ${results.affectedRows} user(s)` });
-//   })
-// }
-
 module.exports = {
   getAllUsers,
   getUserById,
   createUser,
-  updateUserById,
-  deleteUserByFirstName
 }

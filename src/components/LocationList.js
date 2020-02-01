@@ -7,8 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+function createData(fullName, address, locationName, locationType, leash, water, bagStation, locationIs, comments) {
+    return { fullName, address, locationName, locationType, leash, water, bagStation, locationIs, comments };
   }
 
   const rows = [
@@ -29,11 +29,15 @@ const  LocationList = () => {
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>User's Name</TableCell>
+            <TableCell align="right">Address of Location</TableCell>
+            <TableCell align="right">Location Name</TableCell>
+            <TableCell align="right">Location Type</TableCell>
+            <TableCell align="right">Leash</TableCell>
+            <TableCell align="right">Water</TableCell>
+            <TableCell align="right">Bag Stations</TableCell>
+            <TableCell align="right">Location Is</TableCell>
+            <TableCell align="right">Comments</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -42,10 +46,15 @@ const  LocationList = () => {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.fullName}</TableCell>
+              <TableCell align="right">{row.address}</TableCell>
+              <TableCell align="right">{row.locationName}</TableCell>
+              <TableCell align="right">{row.locationType}</TableCell>
+              <TableCell align="right">{row.leash}</TableCell>
+              <TableCell align="right">{row.water}</TableCell>
+              <TableCell align="right">{row.bagStation}</TableCell>
+              <TableCell align="right">{row.locationIs}</TableCell>
+              <TableCell align="right">{row.comments}</TableCell>
             </TableRow>
           ))}
         </TableBody>

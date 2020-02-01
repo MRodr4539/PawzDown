@@ -24,28 +24,35 @@ class AddPost extends Component {
         yourName: '',
         address: '',
         locationName: '',
+        locationType: '',
+        leash: '',
+        bagStation: '',
+        locationIs: '',
         comments: '',
-
-    }
-//    constructor(props){
-//        super(props);
-//        this.state = {value: ''};
-
-//        this.handleChange = this.handleChange.bind(this);
-//        this.handleSubmit = this.handleSubmit.bind(this);
-    // }
-
-    handleChange = (event) =>{
-        this.setState({value: event.target.value});
     }
 
-    // radioHandleChange = event =>{
-    //     setValue(event.target.value)
-    // }
 
-    handleSubmit = (event) =>{
-        alert('Post was submitted' + this.state.value)
-        event.preventDefault();
+
+
+    //Testing
+    onChange = ( event ) => {
+        const target = event.target
+        const name = target.name
+        let value = undefined
+    
+        if ( target.type === 'checkbox' ) {
+            value = target.checked
+        }
+        else if ( target.type === 'radio' ) {
+            value = target.id
+        }
+        else {
+            value = target.value
+        }
+    
+        this.setState({
+            [name]: value,
+        })
     }
 
 
@@ -53,32 +60,35 @@ class AddPost extends Component {
 
     return(
         <div className='add-container'>
-        <form onSubmit={this.handleSubmit} method='post'>
+        <form onSubmit={this.onChange} method='post'>
            <br></br>
            <br></br>
           <TextField
             id='name'
+            name='yourName'
             placeholder='Your Name'
             value = {this.state.yourName}
-            onChange = {this.textChangeHandler}
+            onChange = {this.onChange}
             required 
            />
            <br></br>
            <br></br>
            <TextField
             id='address'
+            name='address'
             placeholder='Address'
             value = {this.state.address}
-            onChange = {this.textChangeHandler}
+            onChange = {this.onChange}
             required 
            />
             <br></br>
             <br></br>
            <TextField
             id='name'
+            name='locationName'
             placeholder='Name of Location'
             value = {this.state.locationName}
-            onChange = {this.textChangeHandler}
+            onChange = {this.onChange}
             required 
            />
             <br></br>
@@ -86,8 +96,9 @@ class AddPost extends Component {
             <label>
                 Type of Location
                 <select 
-                 value={this.state.value}
-                 onChange={this.handleChange}>
+                 name='locationType'
+                 value={this.state.locationType}
+                 onChange={this.onChange}>
                      <option value='Park'>Park</option>
                      <option value='Restruant'>Restruant</option>
                      <option value='Bar'>Bar</option>
@@ -98,9 +109,13 @@ class AddPost extends Component {
             <br></br>
             <br></br>
             <div className='radio-buttons'>
-            <FormControl component="fieldset" >
+            <FormControl component="fieldset"  >
                 <FormLabel component="legend">Leash?</FormLabel>
-                <RadioGroup aria-label="leash" >
+                <RadioGroup 
+                 aria-label="leash"
+                 name='locationType'
+                 onChange={this.onChange} 
+                 value={this.state.leash}>
                     <FormControlLabel value="On" control={<Radio />} label="On" />
                     <FormControlLabel value="Off" control={<Radio />} label="Off" />
                     <FormControlLabel value="Either" control={<Radio />} label="Either" />
@@ -109,7 +124,11 @@ class AddPost extends Component {
             <br></br>
             <FormControl component="fieldset" >
                 <FormLabel component="legend">Water?</FormLabel>
-                <RadioGroup aria-label="leash" >
+                <RadioGroup 
+                    aria-label="water"
+                    name='water'
+                    onChange={this.onChange} 
+                    value={this.state.water}>
                     <FormControlLabel value="Fountain Available" control={<Radio />} label="Fountain Available" />
                     <FormControlLabel value="Bring your own" control={<Radio />} label="Bring your own" />
                 </RadioGroup>
@@ -117,15 +136,23 @@ class AddPost extends Component {
             <br></br>
             <FormControl component="fieldset" >
                 <FormLabel component="legend">Bag Station?</FormLabel>
-                <RadioGroup aria-label="leash" >
+                <RadioGroup 
+                 aria-label="bagStation"
+                 name='bagStation'
+                 onChange={this.onChange}
+                 value={this.state.bagStation} >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes, they have it covered" />
                     <FormControlLabel value="no" control={<Radio />} label="No, bring your own" />
                 </RadioGroup>
             </FormControl>
             <br></br>
-            <FormControl component="fieldset" >
+            <FormControl component="fieldset" name='locationIs'>
                 <FormLabel component="legend">Location is:</FormLabel>
-                <RadioGroup aria-label="leash" >
+                <RadioGroup 
+                 aria-label="locationIs" 
+                 name='locationIs'
+                 onChange={this.onChange}
+                 value={this.state.locationIs}>
                     <FormControlLabel value="enclosed" control={<Radio />} label="Enclosed" />
                     <FormControlLabel value="open" control={<Radio />} label="Open" />
                     <FormControlLabel value="little bit of both" control={<Radio />} label="Little bit of both" />
@@ -139,18 +166,19 @@ class AddPost extends Component {
            
             <label>
                 <TextField 
+                 name='comments'
                  id="standard-multiline-static"
                  placeholder="Ex: There is water at this location. Bring towels for your pup!"
                  multiline
                  rows="4" 
                  type='text' 
-                 value={this.state.value} 
-                 onChange={this.handleChange}
+                 value={this.state.comments} 
+                 onChange={this.onChange}
                  ></TextField>
             </label>
            <br></br>
            <br></br>
-            <Button value='Submit' className='submit-location'>Submit Location</Button>
+            <Button value='Submit' className='submit-location' onSubmit={this.handleSubmit}>Submit Location</Button>
             <br></br>
            <br></br>
         </form>
@@ -164,48 +192,3 @@ class AddPost extends Component {
 
 export default AddPost;
 
-{/* <ThemeProvider theme= {theme}>
-            <ThemeProvider
-                theme={theme =>
-                createMuiTheme({
-                    ...theme,
-                    palatte: {
-                        ...theme.palatte,
-                        primary:{
-                            main: green[500],
-                        },
-                    },
-                })}
-            >
-        <Card className='add-review-card'>
-            <CardContent>
-                <Typography variant="h4">
-                    How is this park looking for you and your Pup?
-                </Typography>
-                <br></br>
-                <CardActions>
-                    <TextField
-                        id='outlined-multiline-static'
-                        label="What's going on at this park?"
-                        multiline
-                        rows='4'
-                        variant='outlined'
-                        placeholder="Closed? Open and looking good? Tell your fellow pups."
-                        value=''
-                        onChange=''
-                    />  
-                </CardActions>
-                <CardActions>
-                    <Button
-                        variant='contained'
-                        color='primary'
-                    >
-                        Submit Review
-                    </Button>
-                </CardActions>
-
-                
-            </CardContent>
-        </Card>
-            </ThemeProvider>
-        </ThemeProvider> */}
