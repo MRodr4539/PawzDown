@@ -26,7 +26,7 @@ const getUserById = (req, res) => {
 
 const createUser = (req, res) => {
  
-  pool.query('INSERT INTO locationList SET ?', {fullName: 'Test User', address: '123 Test Lane, Austin TX 78701', locationName: 'Zilker Park', locationType: 'Park', leash: 'either', water: 'Bring your own', bagStation: 'Yes they have it ccovered', locationIs: 'Open', comments: 'Lots of open space for your pup to roam.' }, (err, results) => {
+  pool.query('INSERT INTO locationList SET ?', req.body, (err, results) => {
     if (err) return handleSQLError(res, err)
     return res.json({ newId: results.insertId });
   })

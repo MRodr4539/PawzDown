@@ -4,16 +4,18 @@
 //         value: posting
 //     }
 // }
-export const login = () => {
-    return{
-        type:'LOGIN',
-        value: true
-    }
-}
-
-export const logout = () => {
-    return{
-        type: 'LOGOUT',
-        value: false  //*****//
-    }
-}
+export const getUniverses = () => {
+    return dispatch => {
+        fetch("/locationList")
+        .then(res => res.json())
+        .then(response => {
+            // console.log(response)
+            const action = {
+                type: "GET_LOCATIONS",
+                value: response
+            };
+            dispatch(action);
+        })
+        .catch(error => console.log(error));
+    };
+};

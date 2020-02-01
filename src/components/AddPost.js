@@ -14,14 +14,14 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import '../App.css'
 import RatingTool from './RatingTool'
+import { Link } from 'react-router-dom'
 
 
 
 
 class AddPost extends Component {
     state = {
-        id: '',
-        yourName: '',
+        fullName: '',
         address: '',
         locationName: '',
         locationType: '',
@@ -31,7 +31,21 @@ class AddPost extends Component {
         comments: '',
     }
 
-
+    handleSubmit = (event) => {
+        
+        fetch('http://pawz-down.appspot.com/locationList', {
+            method: 'POST', // or 'PUT'
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(this.state),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('Success:', data);
+          })
+  
+    }
 
 
     //Testing
@@ -44,7 +58,7 @@ class AddPost extends Component {
             value = target.checked
         }
         else if ( target.type === 'radio' ) {
-            value = target.id
+            value = target.value
         }
         else {
             value = target.value
@@ -65,9 +79,9 @@ class AddPost extends Component {
            <br></br>
           <TextField
             id='name'
-            name='yourName'
-            placeholder='Your Name'
-            value = {this.state.yourName}
+            name='fullName'
+            placeholder='Full Name'
+            value = {this.state.fullName}
             onChange = {this.onChange}
             required 
            />
@@ -113,7 +127,7 @@ class AddPost extends Component {
                 <FormLabel component="legend">Leash?</FormLabel>
                 <RadioGroup 
                  aria-label="leash"
-                 name='locationType'
+                 name='leash'
                  onChange={this.onChange} 
                  value={this.state.leash}>
                     <FormControlLabel value="On" control={<Radio />} label="On" />
@@ -178,7 +192,9 @@ class AddPost extends Component {
             </label>
            <br></br>
            <br></br>
-            <Button value='Submit' className='submit-location' onSubmit={this.handleSubmit}>Submit Location</Button>
+         
+            <Button value='Submit' className='submit-location' onClick={this.handleSubmit}>Submit Location</Button>
+            
             <br></br>
            <br></br>
         </form>
