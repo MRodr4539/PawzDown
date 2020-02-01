@@ -29,7 +29,7 @@ state={
   }
 
   fetchData(){
-    fetch("http://pawz-down.appspot.com/locationList")
+    fetch("https://pawz-down.appspot.com/locationList")
      .then(response => response.json())
      .then(data => {
        console.log("Data fetched", data);

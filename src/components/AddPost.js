@@ -33,7 +33,7 @@ class AddPost extends Component {
 
     handleSubmit = (event) => {
         
-        fetch('http://pawz-down.appspot.com/locationList', {
+        fetch('https://pawz-down.appspot.com/locationList', {
             method: 'POST', // or 'PUT'
             headers: {
               'Content-Type': 'application/json',
