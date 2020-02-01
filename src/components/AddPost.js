@@ -155,8 +155,8 @@ class AddPost extends Component {
                  name='bagStation'
                  onChange={this.onChange}
                  value={this.state.bagStation} >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes, they have it covered" />
-                    <FormControlLabel value="no" control={<Radio />} label="No, bring your own" />
+                    <FormControlLabel value="y" control={<Radio />} label="Yes, they have it covered" />
+                    <FormControlLabel value="n" control={<Radio />} label="No, bring your own" />
                 </RadioGroup>
             </FormControl>
             <br></br>
